@@ -10,6 +10,10 @@ import com.google.common.collect.ImmutableList;
 //#endif
 
 public class Recipe {
+	// #if MarkdownFiles
+	private final String recipeText;
+	// #endif
+	
 	private final String name;
 	private final String description;
 	private final String instructions;
@@ -21,7 +25,11 @@ public class Recipe {
 	private final ImmutableList<Ingredient> ingredients;
 	// #endif
 	
-	public Recipe(String name, String description, String instructions, 
+	public Recipe(
+			// #if MarkdownFiles
+			String recipeText,
+			// #endif
+			String name, String description, String instructions, 
 			// #if Text
 //@			String ingredients
 			// #endif
@@ -29,6 +37,7 @@ public class Recipe {
 			Collection<Ingredient> ingredients
 			// #endif
 		) {
+		this.recipeText = recipeText;
 		this.name = name;
 		this.description = description;
 		this.instructions = instructions;
@@ -38,6 +47,10 @@ public class Recipe {
 		// #if Structured
 		this.ingredients = ImmutableList.copyOf(ingredients);
 		// #endif
+	}
+
+	public String getRecipeText() {
+		return this.recipeText;
 	}
 
 	public String getName() {
@@ -51,8 +64,6 @@ public class Recipe {
 	public String getInstructions() {
 		return instructions;
 	}
-	
-
 	
 	// #if Text
 //@	public String getIngredients() {

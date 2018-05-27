@@ -20,6 +20,7 @@ import com.vladsch.flexmark.util.sequence.BasedSequence;
 import ninja.tilman.chef.data.Ingredient;
 import ninja.tilman.chef.data.Recipe;
 
+// #if MarkdownFiles
 public class MarkdownRecipeManager implements RecipeManager {
 	
 	
@@ -100,12 +101,7 @@ public class MarkdownRecipeManager implements RecipeManager {
 			instructions = instructionsSection.getText();
 		}
   
-		return new Recipe(
-			name, 
-			description, 
-			instructions, 
-			ingredients
-		);
+		return new Recipe(input, name, description, instructions, ingredients);
 	}
 
 	private Section nextSection(Node currentNode) {
@@ -217,3 +213,4 @@ public class MarkdownRecipeManager implements RecipeManager {
 		}
     }
 }
+// #endif

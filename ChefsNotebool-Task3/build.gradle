@@ -19,6 +19,7 @@ repositories {
 dependencies {
 	compile 'com.google.guava:guava:24.1-jre'
     compile 'com.vladsch.flexmark:flexmark-all:0.22.4'
+	compile 'info.debatty:java-string-similarity:1.1.0'
 
     // Use JUnit test framework
     //testImplementation 'junit:junit:4.12'

@@ -25,8 +25,8 @@ Recipes are stored as a directory of markdown files
                 <description>
 Options for which data to assign to a recipe
 </description>
-                <feature mandatory="true" name="Name"/>
-                <alt mandatory="true" name="Ingredients">
+                <feature abstract="true" mandatory="true" name="Name"/>
+                <alt abstract="true" mandatory="true" name="Ingredients">
                     <description>
 Options for the format of ingredients
 </description>
@@ -51,7 +51,7 @@ Ingredients are assigned ingredient amounts and units
                         </feature>
                     </and>
                 </alt>
-                <feature mandatory="true" name="Instructions"/>
+                <feature abstract="true" mandatory="true" name="Instructions"/>
                 <feature abstract="true" name="Tags">
                     <description>
 Recipes can be tagged, e.g. by cusine
@@ -92,7 +92,7 @@ Command to edit an existing recipe
 Command to delete an existing recipe
 </description>
                         </feature>
-                        <feature abstract="true" name="ShowRecipe"/>
+                        <feature name="ShowRecipe"/>
                         <feature abstract="true" name="ShopRecipe">
                             <description>
 Command to add recipe ingredients to an online shopping list which uses the ShoppingList API 
@@ -117,7 +117,7 @@ Parameter to merge the ingredients and instructions of any referenced recipes in
                         <description>
 Methods to select target recipe of cli command
 </description>
-                        <feature abstract="true" name="SelectByName">
+                        <feature name="SelectByName">
                             <description>
 Select recipe by fuzzy searching the recipe name
 </description>
