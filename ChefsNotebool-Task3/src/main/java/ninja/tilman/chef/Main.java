@@ -2,7 +2,7 @@ package ninja.tilman.chef;
 
 import java.io.IOException;
 
-import ninja.tilman.chef.data.recipe.Recipe;
+import ninja.tilman.chef.data.Recipe;
 import ninja.tilman.chef.manager.RecipeManager;
 import ninja.tilman.chef.manager.RecipeManagerProvider;
 

@@ -17,17 +17,8 @@ import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.options.MutableDataSet;
 import com.vladsch.flexmark.util.sequence.BasedSequence;
 
-import ninja.tilman.chef.data.base.Feature;
-// #if Structured
-import ninja.tilman.chef.data.ingredient.Ingredient;
-// #endif
-import ninja.tilman.chef.data.recipe.Recipe;
-// #if Structured
-import ninja.tilman.chef.data.recipe.StructuredIngredients;
-// #endif
-// #if Text
-//@import ninja.tilman.chef.data.recipe.TextIngredients;
-// #endif
+import ninja.tilman.chef.data.Ingredient;
+import ninja.tilman.chef.data.Recipe;
 
 public class MarkdownRecipeManager implements RecipeManager {
 	
@@ -64,14 +55,18 @@ public class MarkdownRecipeManager implements RecipeManager {
         String name = null;
         String description = null;
         String instructions = null;
+        // #if Text
+//@        String ingredients = null;
+        // #endif
+        // #if Structured
+        List<Ingredient> ingredients = null;
+        // #endif
+        
         
         Heading nameNode = null;
         Section descriptionSection = null;
         Section ingredientsSection = null;
-        Section instructionsSection = null;
-        
-		List<Feature<Recipe>> features = new ArrayList<>();
-        
+        Section instructionsSection = null;        
         
 		if (currentNode instanceof Heading && ((Heading) currentNode).getLevel() == 1) {
 	        nameNode = (Heading) currentNode;
@@ -85,16 +80,16 @@ public class MarkdownRecipeManager implements RecipeManager {
 	        currentNode = descriptionSection.getNextNode();
 		}
 		
+		
+		
 		if (currentNode != null) {
 			ingredientsSection = nextSection(currentNode);
 			
 			// #if Text
-//@			TextIngredients ingredients = new TextIngredients(ingredientsSection.getText());
-//@			features.add(ingredients);
+//@			ingredients = ingredientsSection.getText();
 			// #endif
 			// #if Structured
-			StructuredIngredients ingredients = new StructuredIngredients(createIngredientsFromNodes(ingredientsSection.getNodes()));
-			features.add(ingredients);
+			ingredients = createIngredientsFromNodes(ingredientsSection.getNodes());
 			// #endif
 			
 			currentNode = ingredientsSection.getNextNode();
@@ -109,7 +104,7 @@ public class MarkdownRecipeManager implements RecipeManager {
 			name, 
 			description, 
 			instructions, 
-			features
+			ingredients
 		);
 	}
 

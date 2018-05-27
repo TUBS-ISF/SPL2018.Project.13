@@ -1,5 +1,6 @@
-package ninja.tilman.chef.data.ingredient;
+package ninja.tilman.chef.data;
 
+// #if Structured
 import java.util.Collection;
 
 import com.google.common.base.MoreObjects;
@@ -35,3 +36,4 @@ public class Ingredient {
 		return helper.toString();
 	}
 }
+// #endif
