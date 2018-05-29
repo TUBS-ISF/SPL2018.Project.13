@@ -1,11 +1,15 @@
 package ninja.tilman.chef.manager;
 
+//#if MarkdownFiles
+
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+//#if Structured
 import java.util.ArrayList;
+// #endif
 import java.util.List;
 
 import com.google.common.collect.ImmutableList;
@@ -17,10 +21,12 @@ import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.options.MutableDataSet;
 import com.vladsch.flexmark.util.sequence.BasedSequence;
 
+// #if Structured
 import ninja.tilman.chef.data.Ingredient;
+// #endif
 import ninja.tilman.chef.data.Recipe;
 
-// #if MarkdownFiles
+
 public class MarkdownRecipeManager implements RecipeManager {
 	
 	

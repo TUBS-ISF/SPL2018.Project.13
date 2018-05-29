@@ -37,7 +37,9 @@ public class Recipe {
 			Collection<Ingredient> ingredients
 			// #endif
 		) {
+		// #if MarkdownFiles
 		this.recipeText = recipeText;
+		// #endif
 		this.name = name;
 		this.description = description;
 		this.instructions = instructions;
@@ -49,9 +51,15 @@ public class Recipe {
 		// #endif
 	}
 
+	// #if MarkdownFiles
 	public String getRecipeText() {
 		return this.recipeText;
 	}
+	// #else
+//@	public String getRecipeText() {
+//@		throw new UnsupportedOperationException("Database is not yet implemented");
+//@	}	
+	// #endif
 
 	public String getName() {
 		return name;

@@ -68,7 +68,10 @@ public class CommandProcessor {
 			}
 		}
 		return bestMatch.getName();
+		// #else
+//@		throw new UnsupportedOperationException();
 		// #endif
+		
 	}
 	// #endif
 	
