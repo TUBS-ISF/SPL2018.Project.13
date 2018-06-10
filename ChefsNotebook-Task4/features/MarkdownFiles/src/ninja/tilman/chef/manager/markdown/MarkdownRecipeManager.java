@@ -19,12 +19,12 @@ import com.vladsch.flexmark.ast.Node;
 import com.vladsch.flexmark.ast.ThematicBreak;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.options.MutableDataSet;
-import com.vladsch.flexmark.util.sequence.BasedSequence;
 
-// #if Structured
-import ninja.tilman.chef.data.Ingredient;
 // #endif
 import ninja.tilman.chef.data.Recipe;
+import ninja.tilman.chef.data.ingredients.Ingredients;
+import ninja.tilman.chef.data.ingredients.StructuredIngredients;
+import ninja.tilman.chef.data.ingredients.StructuredIngredients.Ingredient;
 import ninja.tilman.chef.manager.RecipeManager;
 
 
@@ -63,13 +63,8 @@ public class MarkdownRecipeManager implements RecipeManager {
         String name = null;
         String description = null;
         String instructions = null;
-        // #if Text
-//@        String ingredients = null;
-        // #endif
-        // #if Structured
-        List<Ingredient> ingredients = null;
-        // #endif
-        
+        Ingredients ingredients = null;
+
         
         Heading nameNode = null;
         Section descriptionSection = null;
@@ -94,7 +89,7 @@ public class MarkdownRecipeManager implements RecipeManager {
 			ingredientsSection = nextSection(currentNode);
 			
 			// #if Text
-//@			ingredients = ingredientsSection.getText();
+//@			ingredients = new TextIngredients(ingredientsSection.getText());
 			// #endif
 			// #if Structured
 			ingredients = createIngredientsFromNodes(ingredientsSection.getNodes());
@@ -108,7 +103,7 @@ public class MarkdownRecipeManager implements RecipeManager {
 			instructions = instructionsSection.getText();
 		}
   
-		return new Recipe(input, name, description, instructions, ingredients);
+		return new Recipe(name, description, instructions, ingredients);
 	}
 
 	private Section nextSection(Node currentNode) {
@@ -132,19 +127,18 @@ public class MarkdownRecipeManager implements RecipeManager {
 		return listBuilder.build();
 	}
 	
-	// #if Structured
-	private List<Ingredient> createIngredientsFromNodes(List<Node> ingredientsNodes) {
-		ImmutableList.Builder<Ingredient> ingredientsBuilder = ImmutableList.builder();
+	private Ingredients createIngredientsFromNodes(List<Node> ingredientsNodes) {
+		List<Ingredient> ingredientsList = new ArrayList<>();
 		for (Node node : ingredientsNodes) {
 			if (node instanceof ListBlock) {
 				for (Node child : node.getChildren()) {
-					ingredientsBuilder.add(createIngredientFromNode(child));
+					ingredientsList.add(createIngredientFromNode(child));
 				}
 			} else {
-				ingredientsBuilder.add(createIngredientFromNode(node));
+				ingredientsList.add(createIngredientFromNode(node));
 			}
 		}
-		return ingredientsBuilder.build();
+		return new StructuredIngredients(ingredientsList);
 	}
 	
 	private Ingredient createIngredientFromNode(Node node) {
@@ -167,56 +161,4 @@ public class MarkdownRecipeManager implements RecipeManager {
 		// TODO node in ingredients
 		return new Ingredient(text, children);
 	}
-	// #endif
-	
-	/**
-	 * @see https://github.com/vsch/flexmark-java/issues/222#issuecomment-378103108
-	 */
-    private BasedSequence includeToTrailingEOL(BasedSequence chars) {
-        int endOffset = chars.getEndOffset();
-        while (endOffset < chars.getBaseSequence().length() && chars.getBaseSequence().charAt(endOffset) != '\n') {
-            endOffset++;
-        }
-
-        if (endOffset < chars.getBaseSequence().length()) endOffset++;
-
-        if (endOffset != chars.getEndOffset()) {
-            chars = chars.baseSubSequence(chars.getStartOffset(), endOffset);
-        }
-        return chars;
-    }
-    
-    
-    private class Section {
-    	private final ThematicBreak endNode;
-    	private final ImmutableList<Node> nodes;
-    	
-		public Section(ThematicBreak endNode, List<Node> nodes) {
-			this.endNode = endNode;
-			this.nodes = ImmutableList.copyOf(nodes);
-		}
-
-		public ThematicBreak getEndNode() {
-			return endNode;
-		}
-
-		public ImmutableList<Node> getNodes() {
-			return nodes;
-		}
-		
-		public Node getNextNode() {
-			if (endNode == null) {
-				return null;
-			}
-			return endNode.getNext();
-		}
-		
-		public String getText() {
-			StringBuilder stringBuilder = new StringBuilder();
-			for (Node node : nodes) {
-				stringBuilder.append(includeToTrailingEOL(node.getChars()));
-			}
-			return stringBuilder.toString();
-		}
-    }
 }
