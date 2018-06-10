@@ -7,9 +7,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-//#if Structured
 import java.util.ArrayList;
-// #endif
 import java.util.List;
 
 import com.google.common.collect.ImmutableList;
@@ -23,8 +21,10 @@ import com.vladsch.flexmark.util.options.MutableDataSet;
 // #endif
 import ninja.tilman.chef.data.Recipe;
 import ninja.tilman.chef.data.ingredients.Ingredients;
+import ninja.tilman.chef.data.ingredients.IngredientsClassProvider;
 import ninja.tilman.chef.data.ingredients.StructuredIngredients;
 import ninja.tilman.chef.data.ingredients.StructuredIngredients.Ingredient;
+import ninja.tilman.chef.data.ingredients.TextIngredients;
 import ninja.tilman.chef.manager.RecipeManager;
 
 
@@ -88,12 +88,12 @@ public class MarkdownRecipeManager implements RecipeManager {
 		if (currentNode != null) {
 			ingredientsSection = nextSection(currentNode);
 			
-			// #if Text
-//@			ingredients = new TextIngredients(ingredientsSection.getText());
-			// #endif
-			// #if Structured
-			ingredients = createIngredientsFromNodes(ingredientsSection.getNodes());
-			// #endif
+			Class<? extends Ingredients> ingredientsClass = IngredientsClassProvider.getInstance().getIngredientsClass();
+			if (ingredientsClass == StructuredIngredients.class) {
+				ingredients = createIngredientsFromNodes(ingredientsSection.getNodes());
+			} else if (ingredientsClass == TextIngredients.class) {
+				ingredients = new TextIngredients(ingredientsSection.getText());
+			}
 			
 			currentNode = ingredientsSection.getNextNode();
 		}

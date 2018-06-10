@@ -5,13 +5,12 @@ import java.util.List;
 
 import loader.PluginLoader;
 import ninja.tilman.chef.manager.RecipeManager;
-import ninja.tilman.chef.manager.RecipeManagerProvider;
 
 public class CommandProcessor {
 	private final RecipeManager manager;
 	
 	public CommandProcessor() {
-		manager = RecipeManagerProvider.getManager();
+		manager = RecipeManager.getManager();
 	}
 	
 	public String processCommand(String command) {

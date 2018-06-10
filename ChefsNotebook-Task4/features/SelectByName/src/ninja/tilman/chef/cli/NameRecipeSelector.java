@@ -2,7 +2,7 @@ package ninja.tilman.chef.cli;
 
 import info.debatty.java.stringsimilarity.JaroWinkler;
 import ninja.tilman.chef.data.Recipe;
-import ninja.tilman.chef.manager.RecipeManagerProvider;
+import ninja.tilman.chef.manager.RecipeManager;
 
 public class NameRecipeSelector implements RecipeSelector {
 
@@ -14,7 +14,7 @@ public class NameRecipeSelector implements RecipeSelector {
 
         Double bestSimilarity = Double.NEGATIVE_INFINITY;
         Recipe bestMatch = null;
-		for (Recipe recipe : RecipeManagerProvider.getManager().getRecipes()) {
+		for (Recipe recipe : RecipeManager.getManager().getRecipes()) {
 			Double sim = jw.similarity(search, recipe.getName().toLowerCase());
 			if (sim > bestSimilarity) {
 				bestSimilarity = sim;

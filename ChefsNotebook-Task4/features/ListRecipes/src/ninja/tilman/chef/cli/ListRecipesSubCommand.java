@@ -3,7 +3,7 @@ package ninja.tilman.chef.cli;
 import java.util.List;
 
 import ninja.tilman.chef.data.Recipe;
-import ninja.tilman.chef.manager.RecipeManagerProvider;
+import ninja.tilman.chef.manager.RecipeManager;
 
 public class ListRecipesSubCommand implements SubCommand {
 
@@ -20,7 +20,7 @@ public class ListRecipesSubCommand implements SubCommand {
 	@Override
 	public String execute(List<String> arguments) {
 		StringBuilder result = new StringBuilder();
-		for (Recipe recipe :  RecipeManagerProvider.getManager().getRecipes()) {
+		for (Recipe recipe :  RecipeManager.getManager().getRecipes()) {
 			result.append(recipe.getName());
 			result.append("\n");
 		}
