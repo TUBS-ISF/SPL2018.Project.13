@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+    <properties/>
+    <struct>
+        <and abstract="true" mandatory="true" name="ChefsNotebook">
+            <description>
+ChefsNotebook is command line tool for managing recipes
+</description>
+            <alt abstract="true" mandatory="true" name="Storage">
+                <description>
+Options for Recipe Storage
+</description>
+                <feature name="Database">
+                    <description>
+Recipes are stored in a SQLite database
+</description>
+                </feature>
+                <feature name="MarkdownFiles">
+                    <description>
+Recipes are stored as a directory of markdown files
+</description>
+                </feature>
+            </alt>
+            <and abstract="true" mandatory="true" name="RecipeData">
+                <description>
+Options for which data to assign to a recipe
+</description>
+                <feature abstract="true" mandatory="true" name="Name"/>
+                <alt abstract="true" mandatory="true" name="Ingredients">
+                    <description>
+Options for the format of ingredients
+</description>
+                    <feature name="Text">
+                        <description>
+Ingredients are formatted as a freeform text field
+</description>
+                    </feature>
+                    <and name="Structured">
+                        <description>
+Ingredients are formatted in a structured way, e.g. as a List of Ingredients
+</description>
+                        <feature abstract="true" name="MetaRecipes">
+                            <description>
+Ingredients may be another recipe (e.g. recipe for a three course meal has recipes entree, main and dessert as ingredients)
+</description>
+                        </feature>
+                        <feature abstract="true" name="AmountsAndUnits">
+                            <description>
+Ingredients are assigned ingredient amounts and units
+</description>
+                        </feature>
+                    </and>
+                </alt>
+                <feature abstract="true" mandatory="true" name="Instructions"/>
+                <feature abstract="true" name="Tags">
+                    <description>
+Recipes can be tagged, e.g. by cusine
+</description>
+                </feature>
+                <feature abstract="true" name="Servings">
+                    <description>
+Recipes can be annotated with the amount of people the are meant for
+</description>
+                </feature>
+            </and>
+            <or abstract="true" mandatory="true" name="CLI">
+                <description>
+CLI for the application
+</description>
+                <and abstract="true" name="RecipeCLI">
+                    <description>
+Command for interacting with a single recipe
+</description>
+                    <or abstract="true" mandatory="true" name="RecipeCLICommands">
+                        <or abstract="true" name="EditRecipeUI">
+                            <description>
+A ncurses-like UI for editing recipes
+</description>
+                            <feature abstract="true" name="AddRecipe">
+                                <description>
+Command to add new recipes
+</description>
+                            </feature>
+                            <feature abstract="true" name="EditRecipe">
+                                <description>
+Command to edit an existing recipe
+</description>
+                            </feature>
+                        </or>
+                        <feature abstract="true" name="DeleteRecipe">
+                            <description>
+Command to delete an existing recipe
+</description>
+                        </feature>
+                        <feature name="ShowRecipe"/>
+                        <feature abstract="true" name="ShopRecipe">
+                            <description>
+Command to add recipe ingredients to an online shopping list which uses the ShoppingList API 
+
+(see https://github.com/tstehr/shoppinglist/blob/master/API.md)
+</description>
+                        </feature>
+                    </or>
+                    <or abstract="true" name="RecipeCLIParameters">
+                        <feature abstract="true" name="ScaleRecipe">
+                            <description>
+Parameter to scale the recipe for a given number of people
+</description>
+                        </feature>
+                        <feature abstract="true" name="MergeRecipe">
+                            <description>
+Parameter to merge the ingredients and instructions of any referenced recipes into the display
+</description>
+                        </feature>
+                    </or>
+                    <or abstract="true" mandatory="true" name="TargetRecipeSelection">
+                        <description>
+Methods to select target recipe of cli command
+</description>
+                        <feature name="SelectByName">
+                            <description>
+Select recipe by fuzzy searching the recipe name
+</description>
+                        </feature>
+                        <feature abstract="true" name="SelectByLastListIndex">
+                            <description>
+Select by and index of the last shown recipe list
+</description>
+                        </feature>
+                        <feature abstract="true" name="SelectByFilterExpression">
+                            <description>
+Select recipes by providing a filter expression
+</description>
+                        </feature>
+                    </or>
+                </and>
+                <and name="ListRecipes">
+                    <description>
+Command to list all recipes
+</description>
+                    <and abstract="true" name="Filter">
+                        <description>
+Paramter to filter recipe list
+</description>
+                        <or abstract="true" mandatory="true" name="FilterMethods">
+                            <description>
+Predicates by which recipes can be filtered
+</description>
+                            <feature abstract="true" name="FilterByName"/>
+                            <feature abstract="true" name="FilterByInstructions"/>
+                            <feature abstract="true" name="FilterByIngredients"/>
+                            <feature abstract="true" name="FilterByTags"/>
+                        </or>
+                        <feature abstract="true" name="FilterBooleanExpresion">
+                            <description>
+Filters can be boolean expressions combining the base filters
+</description>
+                        </feature>
+                    </and>
+                </and>
+            </or>
+        </and>
+    </struct>
+    <constraints>
+        <rule>
+            <imp>
+                <var>SelectByLastListIndex</var>
+                <var>ListRecipes</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>SelectByFilterExpression</var>
+                <var>Filter</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>FilterByTags</var>
+                <var>Tags</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>ScaleRecipe</var>
+                <var>AmountsAndUnits</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>ScaleRecipe</var>
+                <var>Servings</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MergeRecipe</var>
+                <var>MetaRecipes</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>ShopRecipe</var>
+                <var>Structured</var>
+            </imp>
+        </rule>
+    </constraints>
+    <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+    <comments/>
+    <featureOrder userDefined="false"/>
+</featureModel>
