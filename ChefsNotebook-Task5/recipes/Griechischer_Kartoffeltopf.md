@@ -1,18 +1,20 @@
 # Griechischer Kartoffeltopf
 
-- 1 Bund glatte Petersilie
-- 2 TL Salz
-- 1 Prise Pfeffer
-- 1 Prise Oregano
-- 1 Prise Zimt
-- 800 g festkochende Kartoffeln
-- 3 EL neutrales Öl
-- 1 Gemüsezwiebel
-- 250 g Zucchini
-- 250 g Tomaten
-- 100 g Schafkäse
-- 100 g Schmand
-- 100 g Sahne
+- Gemüsebasis
+	- 1 Bund glatte Petersilie
+	- 2 TL Salz
+	- 1 Prise Pfeffer
+	- 1 Prise Oregano
+	- 1 Prise Zimt
+	- 800 g festkochende Kartoffeln
+	- 3 EL neutrales Öl
+	- 1 Gemüsezwiebel
+	- 250 g Zucchini
+	- 250 g Tomaten
+- Käsebelag
+	- 100 g Schafkäse
+	- 100 g Schmand
+	- 100 g Sahne
 
 ---
 

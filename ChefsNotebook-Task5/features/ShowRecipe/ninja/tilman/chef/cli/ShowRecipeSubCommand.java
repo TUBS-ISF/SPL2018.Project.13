@@ -24,7 +24,7 @@ public class ShowRecipeSubCommand implements SubCommand {
 		if (recipe == null) {
 			return "No recipe found";
 		} else {
-			return recipe.getName();
+			return recipe.getText();
 		}
 	}
 }

@@ -13,4 +13,8 @@ public class Recipe {
 	public String getIngredients() {
 		return ingredients;
 	}
+	
+	public String getIngredientsText() {
+		return ingredients;
+	}
 }

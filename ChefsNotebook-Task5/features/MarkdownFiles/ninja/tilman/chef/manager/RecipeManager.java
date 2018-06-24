@@ -64,7 +64,7 @@ public class RecipeManager {
         Heading nameNode = null;
         Section descriptionSection = null;
         Section ingredientsSection = null;
-        Section instructionsSection = null;        
+        Section instructionsSection = null;
         
 		if (currentNode instanceof Heading && ((Heading) currentNode).getLevel() == 1) {
 	        nameNode = (Heading) currentNode;

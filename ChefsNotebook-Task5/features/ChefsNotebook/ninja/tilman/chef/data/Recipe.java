@@ -28,4 +28,19 @@ public class Recipe {
 				.add("ingredients", ingredients)
 				.toString();
 	}
+	
+	public String getText() {
+		StringBuilder b = new StringBuilder();
+		b.append("# ");
+		b.append(name.trim());
+		b.append("\n\n");
+		if (description != null) {
+			b.append(description.trim());
+			b.append("\n\n---\n\n");
+		}
+		b.append(getIngredientsText().trim());
+		b.append("\n\n---\n\n");
+		b.append(instructions.trim());
+		return b.toString();
+	}
 }
