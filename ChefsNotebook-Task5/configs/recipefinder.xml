@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="ChefsNotebook"/>
+    <feature automatic="selected" name="Storage"/>
+    <feature manual="selected" name="Database"/>
+    <feature automatic="unselected" name="MarkdownFiles"/>
+    <feature automatic="unselected" name="MarkdownTextIngredients"/>
+    <feature automatic="unselected" name="MarkdownStructuredIngredients"/>
+    <feature automatic="selected" name="RecipeData"/>
+    <feature automatic="selected" name="Name"/>
+    <feature automatic="selected" name="Ingredients"/>
+    <feature automatic="unselected" name="Text"/>
+    <feature automatic="selected" manual="selected" name="Structured"/>
+    <feature manual="selected" name="AmountsAndUnits"/>
+    <feature automatic="selected" name="Instructions"/>
+    <feature automatic="selected" manual="selected" name="Tags"/>
+    <feature manual="selected" name="Servings"/>
+    <feature automatic="selected" name="CLI"/>
+    <feature automatic="selected" name="RecipeCLI"/>
+    <feature automatic="selected" name="RecipeCLICommands"/>
+    <feature manual="selected" name="ShowRecipe"/>
+    <feature automatic="selected" name="TargetRecipeSelection"/>
+    <feature manual="selected" name="SelectByFilterExpression"/>
+    <feature automatic="selected" name="ListRecipes"/>
+    <feature automatic="selected" name="Filter"/>
+    <feature automatic="selected" name="FilterMethods"/>
+    <feature manual="selected" name="FilterByName"/>
+    <feature manual="selected" name="FilterByInstructions"/>
+    <feature manual="selected" name="FilterByIngredients"/>
+    <feature manual="selected" name="FilterByTags"/>
+    <feature manual="selected" name="FilterBooleanExpresion"/>
+</configuration>

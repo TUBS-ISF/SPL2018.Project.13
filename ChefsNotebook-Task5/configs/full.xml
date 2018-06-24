@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="ChefsNotebook"/>
+    <feature automatic="selected" name="Storage"/>
+    <feature automatic="unselected" name="Database"/>
+    <feature manual="selected" name="MarkdownFiles"/>
+    <feature automatic="unselected" name="MarkdownTextIngredients"/>
+    <feature automatic="selected" name="MarkdownStructuredIngredients"/>
+    <feature automatic="selected" name="RecipeData"/>
+    <feature automatic="selected" name="Name"/>
+    <feature automatic="selected" name="Ingredients"/>
+    <feature automatic="unselected" name="Text"/>
+    <feature automatic="selected" manual="selected" name="Structured"/>
+    <feature automatic="selected" manual="selected" name="MetaRecipes"/>
+    <feature automatic="selected" manual="selected" name="AmountsAndUnits"/>
+    <feature automatic="selected" name="Instructions"/>
+    <feature automatic="selected" manual="selected" name="Tags"/>
+    <feature automatic="selected" manual="selected" name="Servings"/>
+    <feature automatic="selected" name="CLI"/>
+    <feature automatic="selected" manual="selected" name="RecipeCLI"/>
+    <feature automatic="selected" name="RecipeCLICommands"/>
+    <feature automatic="selected" manual="selected" name="EditRecipeUI"/>
+    <feature manual="selected" name="AddRecipe"/>
+    <feature manual="selected" name="EditRecipe"/>
+    <feature manual="selected" name="DeleteRecipe"/>
+    <feature manual="selected" name="ShowRecipe"/>
+    <feature manual="selected" name="ShopRecipe"/>
+    <feature automatic="selected" manual="selected" name="RecipeCLIParameters"/>
+    <feature manual="selected" name="ScaleRecipe"/>
+    <feature manual="selected" name="MergeRecipe"/>
+    <feature automatic="selected" name="TargetRecipeSelection"/>
+    <feature manual="selected" name="SelectByName"/>
+    <feature manual="selected" name="SelectByLastListIndex"/>
+    <feature manual="selected" name="SelectByFilterExpression"/>
+    <feature automatic="selected" name="ListRecipes"/>
+    <feature automatic="selected" name="Filter"/>
+    <feature automatic="selected" name="FilterMethods"/>
+    <feature manual="selected" name="FilterByName"/>
+    <feature manual="selected" name="FilterByInstructions"/>
+    <feature manual="selected" name="FilterByIngredients"/>
+    <feature manual="selected" name="FilterByTags"/>
+    <feature manual="selected" name="FilterBooleanExpresion"/>
+</configuration>
