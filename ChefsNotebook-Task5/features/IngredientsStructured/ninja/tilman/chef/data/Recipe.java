@@ -29,7 +29,7 @@ public class Recipe {
 				b.append('\t');
 			}
 			b.append("- ");
-			b.append(ingredient.getName().trim());
+			b.append(ingredient.getText().trim());
 			b.append("\n");
 			buildIngredientsText(b, ingredient.getChildren(), depth + 1);
 		}

@@ -20,7 +20,9 @@ Recipes are stored in a SQLite database
 Recipes are stored as a directory of markdown files
 </description>
                     <feature name="MarkdownIngredientsText"/>
-                    <feature name="MarkdownIngredientsStructured"/>
+                    <and name="MarkdownIngredientsStructured">
+                        <feature name="MakrdownIngredientsAmountsAndUnits"/>
+                    </and>
                 </alt>
             </alt>
             <and abstract="true" mandatory="true" name="RecipeData">
@@ -46,7 +48,7 @@ Ingredients are formatted in a structured way, e.g. as a List of Ingredients
 Ingredients may be another recipe (e.g. recipe for a three course meal has recipes entree, main and dessert as ingredients)
 </description>
                         </feature>
-                        <feature abstract="true" name="IngredientsAmountsAndUnits">
+                        <feature name="IngredientsAmountsAndUnits">
                             <description>
 Ingredients are assigned ingredient amounts and units
 </description>
@@ -222,6 +224,15 @@ Filters can be boolean expressions combining the base filters
                     <var>MarkdownFiles</var>
                 </conj>
                 <var>MarkdownIngredientsStructured</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <conj>
+                    <var>IngredientsAmountsAndUnits</var>
+                    <var>MarkdownFiles</var>
+                </conj>
+                <var>MakrdownIngredientsAmountsAndUnits</var>
             </imp>
         </rule>
     </constraints>

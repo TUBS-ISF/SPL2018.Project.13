@@ -18,9 +18,16 @@ public class Ingredient {
 	public Ingredient(String name, Collection<Ingredient> children) {
 		this.name = name;
 		this.children = ImmutableList.copyOf(children);
+		
+		assert name != null;
+		assert children != null;
 	}
-
+	
 	public String getName() {
+		return name;
+	}
+	
+	public String getText() {
 		return name;
 	}
 

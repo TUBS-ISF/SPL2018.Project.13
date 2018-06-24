@@ -6,6 +6,7 @@
     <feature manual="selected" name="MarkdownFiles"/>
     <feature automatic="unselected" name="MarkdownIngredientsText"/>
     <feature automatic="selected" name="MarkdownIngredientsStructured"/>
+    <feature automatic="selected" name="MakrdownIngredientsAmountsAndUnits"/>
     <feature automatic="selected" name="RecipeData"/>
     <feature automatic="selected" name="Name"/>
     <feature automatic="selected" name="Ingredients"/>
