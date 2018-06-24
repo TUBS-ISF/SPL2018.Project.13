@@ -4,14 +4,13 @@
     <feature automatic="selected" name="Storage"/>
     <feature manual="selected" name="Database"/>
     <feature automatic="unselected" name="MarkdownFiles"/>
-    <feature automatic="unselected" name="MarkdownTextIngredients"/>
-    <feature automatic="unselected" name="MarkdownStructuredIngredients"/>
+    <feature automatic="unselected" name="MarkdownIngredientsText"/>
+    <feature automatic="unselected" name="MarkdownIngredientsStructured"/>
     <feature automatic="selected" name="RecipeData"/>
     <feature automatic="selected" name="Name"/>
     <feature automatic="selected" name="Ingredients"/>
-    <feature automatic="unselected" name="Text"/>
-    <feature automatic="selected" manual="selected" name="Structured"/>
-    <feature manual="selected" name="AmountsAndUnits"/>
+    <feature automatic="selected" manual="selected" name="IngredientsStructured"/>
+    <feature manual="selected" name="IngredientsAmountsAndUnits"/>
     <feature automatic="selected" name="Instructions"/>
     <feature automatic="selected" manual="selected" name="Tags"/>
     <feature manual="selected" name="Servings"/>

@@ -19,8 +19,8 @@ Recipes are stored in a SQLite database
                     <description>
 Recipes are stored as a directory of markdown files
 </description>
-                    <feature name="MarkdownTextIngredients"/>
-                    <feature name="MarkdownStructuredIngredients"/>
+                    <feature name="MarkdownIngredientsText"/>
+                    <feature name="MarkdownIngredientsStructured"/>
                 </alt>
             </alt>
             <and abstract="true" mandatory="true" name="RecipeData">
@@ -32,21 +32,21 @@ Options for which data to assign to a recipe
                     <description>
 Options for the format of ingredients
 </description>
-                    <feature name="Text">
+                    <feature name="IngredientsText">
                         <description>
 Ingredients are formatted as a freeform text field
 </description>
                     </feature>
-                    <and name="Structured">
+                    <and name="IngredientsStructured">
                         <description>
 Ingredients are formatted in a structured way, e.g. as a List of Ingredients
 </description>
-                        <feature abstract="true" name="MetaRecipes">
+                        <feature abstract="true" name="IngredientsMetaRecipes">
                             <description>
 Ingredients may be another recipe (e.g. recipe for a three course meal has recipes entree, main and dessert as ingredients)
 </description>
                         </feature>
-                        <feature abstract="true" name="AmountsAndUnits">
+                        <feature abstract="true" name="IngredientsAmountsAndUnits">
                             <description>
 Ingredients are assigned ingredient amounts and units
 </description>
@@ -185,7 +185,7 @@ Filters can be boolean expressions combining the base filters
         <rule>
             <imp>
                 <var>ScaleRecipe</var>
-                <var>AmountsAndUnits</var>
+                <var>IngredientsAmountsAndUnits</var>
             </imp>
         </rule>
         <rule>
@@ -197,31 +197,31 @@ Filters can be boolean expressions combining the base filters
         <rule>
             <imp>
                 <var>MergeRecipe</var>
-                <var>MetaRecipes</var>
+                <var>IngredientsMetaRecipes</var>
             </imp>
         </rule>
         <rule>
             <imp>
                 <var>ShopRecipe</var>
-                <var>Structured</var>
+                <var>IngredientsStructured</var>
             </imp>
         </rule>
         <rule>
             <imp>
                 <conj>
-                    <var>Text</var>
+                    <var>IngredientsText</var>
                     <var>MarkdownFiles</var>
                 </conj>
-                <var>MarkdownTextIngredients</var>
+                <var>MarkdownIngredientsText</var>
             </imp>
         </rule>
         <rule>
             <imp>
                 <conj>
-                    <var>Structured</var>
+                    <var>IngredientsStructured</var>
                     <var>MarkdownFiles</var>
                 </conj>
-                <var>MarkdownStructuredIngredients</var>
+                <var>MarkdownIngredientsStructured</var>
             </imp>
         </rule>
     </constraints>
