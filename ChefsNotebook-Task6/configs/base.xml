@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="ChefsNotebook"/>
+    <feature automatic="selected" name="Storage"/>
+    <feature automatic="unselected" name="Database"/>
+    <feature manual="selected" name="MarkdownFiles"/>
+    <feature automatic="selected" name="MarkdownIngredientsText"/>
+    <feature automatic="unselected" name="MarkdownIngredientsStructured"/>
+    <feature automatic="selected" name="RecipeData"/>
+    <feature automatic="selected" name="Name"/>
+    <feature automatic="selected" name="Ingredients"/>
+    <feature manual="selected" name="IngredientsText"/>
+    <feature automatic="unselected" name="IngredientsStructured"/>
+    <feature automatic="unselected" name="IngredientsMetaRecipes"/>
+    <feature automatic="unselected" name="IngredientsAmountsAndUnits"/>
+    <feature automatic="selected" name="Instructions"/>
+    <feature automatic="selected" name="CLI"/>
+    <feature automatic="unselected" name="ShopRecipe"/>
+    <feature automatic="unselected" name="RecipeCLIParameters"/>
+    <feature automatic="unselected" name="ScaleRecipe"/>
+    <feature automatic="unselected" name="MergeRecipe"/>
+    <feature manual="selected" name="ListRecipes"/>
+</configuration>

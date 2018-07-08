@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="ChefsNotebook"/>
+    <feature automatic="selected" name="Storage"/>
+    <feature automatic="unselected" name="Database"/>
+    <feature manual="selected" name="MarkdownFiles"/>
+    <feature automatic="unselected" name="MarkdownIngredientsText"/>
+    <feature automatic="selected" name="MarkdownIngredientsStructured"/>
+    <feature automatic="selected" name="MakrdownIngredientsAmountsAndUnits"/>
+    <feature automatic="selected" name="RecipeData"/>
+    <feature automatic="selected" name="Name"/>
+    <feature automatic="selected" name="Ingredients"/>
+    <feature automatic="unselected" name="IngredientsText"/>
+    <feature automatic="selected" name="IngredientsStructured"/>
+    <feature automatic="selected" manual="selected" name="IngredientsMetaRecipes"/>
+    <feature automatic="selected" manual="selected" name="IngredientsAmountsAndUnits"/>
+    <feature automatic="selected" name="Instructions"/>
+    <feature automatic="selected" name="Servings"/>
+    <feature automatic="selected" name="CLI"/>
+    <feature automatic="selected" name="RecipeCLI"/>
+    <feature automatic="selected" name="RecipeCLICommands"/>
+    <feature manual="selected" name="ShowRecipe"/>
+    <feature manual="selected" name="ShopRecipe"/>
+    <feature automatic="selected" name="RecipeCLIParameters"/>
+    <feature manual="selected" name="ScaleRecipe"/>
+    <feature manual="selected" name="MergeRecipe"/>
+    <feature automatic="selected" name="TargetRecipeSelection"/>
+    <feature manual="selected" name="SelectByName"/>
+</configuration>
